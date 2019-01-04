@@ -13,7 +13,7 @@ def main():
     r = requests.get('http://www3.nhk.or.jp/news/easy/news-list.json')
     r.encoding = 'utf-8-sig'
     o = json.loads(r.text)
-    parse(o, '01')
+    parse(o, sys.argv[1])
 
 def parse(o, mth):
     y = {}
