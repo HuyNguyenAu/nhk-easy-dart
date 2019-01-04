@@ -13,7 +13,7 @@ def main():
     r = requests.get('http://www3.nhk.or.jp/news/easy/news-list.json')
     r.encoding = 'utf-8-sig'
     o = json.loads(r.text)
-    parse(o, sys.argv[1])
+    parse(o, '01')
 
 def parse(o, mth):
     y = {}
@@ -50,7 +50,7 @@ def parseMonth(dic, mth):
     
     content.reverse()
 
-    with open(output, "w") as f:
+    with open(output, "w", encoding="utf-8") as f:
         print('<?xml version="1.0" encoding="UTF-8" ?>', file=f)
         print("<!DOCTYPE html>", file=f)
         print("<html lang='ja'>", file=f)
@@ -63,7 +63,7 @@ def parseMonth(dic, mth):
         print("</html>", file=f)
         print("File \"" + output + "\" created")
         
-        file = open(save_path + '/' + join_str + '/' + join_str + '.opf', "w")
+        file = open(save_path + '/' + join_str + '/' + join_str + '.opf', "w", encoding="utf-8")
         file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?><package version=\"3.0\" xmlns=\"http://www.idpf.org/2007/opf\"         unique-identifier=\"BookId\"> <metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\"           xmlns:dcterms=\"http://purl.org/dc/terms/\">   <dc:title>NHK ニュース・読み物・" + join_str + "</dc:title>    <dc:contributor>NHK</dc:contributor>   <dc:language>ja</dc:language>   <dc:publisher>NHK</dc:publisher> </metadata> <manifest>  <item id=\"titlepage\" href=\"" + output + "\" media-type=\"application/xhtml+xml\" /> </manifest> <spine toc=\"tocncx\" page-progression-direction=\"rtl\">  <itemref idref=\"titlepage\" /> </spine></package>")
         print("File \"" + save_path + '/' + join_str + '/' + join_str + '.opf' + "\" created")
         file.close()
