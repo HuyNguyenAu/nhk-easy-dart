@@ -1,7 +1,7 @@
 # NHK Easy To PDF
 
 ## Description:
-Download all NHK Easy articles of a particular month, and combine them into a single PDF file.
+Download all NHK Easy articles of a particular month, and combine them into a single HTML file.
 
 ## Requirements:
 ### Enviroment: 
