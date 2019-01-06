@@ -1,4 +1,4 @@
-# NHK Easy To PDF
+# NHK Easy To HTML
 
 ## Description:
 Download all NHK Easy articles of a particular month, and combine them into a single HTML file.
