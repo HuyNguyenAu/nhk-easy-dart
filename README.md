@@ -27,5 +27,5 @@ python nhk-easy.py <month>
 import 'nhk_easy.dart'
 
 var html = await createHTML();
-print(html)
+print(html);
 ```
